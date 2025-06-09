@@ -27,6 +27,7 @@ public class Resposta {
     private Topico topico;
     private LocalDate dataCriacao;
     @ManyToOne@JoinColumn(name="perfil_id")
+    @JsonIgnore
     private Perfil perfil;
 
 }

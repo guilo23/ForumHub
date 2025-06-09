@@ -21,15 +21,8 @@ public class UsuarioController {
     @Autowired
     private RespostaService respostaService;
 
-    @PostMapping
-    private ResponseEntity addUser(@RequestBody RequestUsuario dados){
-        System.out.println(dados);
-        usuarioService.createUser(dados);
-        return  ResponseEntity.ok().body(dados);
-    }
     @PostMapping("/{userId}")
     public ResponseEntity addPerfil(@PathVariable Long userId,@RequestBody RequestPerfil nomePerfil){
-        System.out.println(nomePerfil);
         var perfil = perfilService.createPerfil(userId,nomePerfil);
         return ResponseEntity.ok().body(perfil);
     }
@@ -44,6 +37,4 @@ public class UsuarioController {
         perfilService.PerfilDelete(id);
         return ResponseEntity.ok().body("Perfil deletada com sucesso");
     }
-
-
 }
